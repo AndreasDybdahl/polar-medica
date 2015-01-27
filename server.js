@@ -12,7 +12,7 @@ function staticFile(p, mime) {
   };
 }
 
-function returnFile(req, res, file, mime) {
+function returnFile(req, res, file, mime, prepend) {
   fs.stat(file, function(err, stat) {
     if(err) {
       res.write(err);
@@ -20,10 +20,16 @@ function returnFile(req, res, file, mime) {
       return;
     }
 
+    var size = stat.size;
+    var buffer = prepend ? new Buffer(prepend, 'utf-8') : null;
+    if (buffer) size += prepend.length;
+
     res.writeHead(200, {
       'Content-Type': mime,
-      'Content-Length': stat.size
+      'Content-Length': size
     });
+
+    if (buffer) res.write(buffer);
 
     var readStream = fs.createReadStream(file);
     readStream.pipe(res);
@@ -59,7 +65,7 @@ module.exports = {
 
     var indexFile = path.join(__dirname, 'index.html');
     app.use(function(req, res) {
-      returnFile(req, res, indexFile, 'text/html');
+      returnFile(req, res, indexFile, 'text/html', '<script src="/socket.io/socket.io.js"></script>\n<script src="/lib/reload-client.js"></script>\n');
     });
 
 

@@ -10,6 +10,8 @@ System.config({
 System.config({
   "map": {
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.2",
+    "bootstrap": "github:twbs/bootstrap@3.3.2",
+    "css": "github:systemjs/plugin-css@0.1.0",
     "github:aurelia/binding@0.3.2": {
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
       "aurelia-task-queue": "github:aurelia/task-queue@0.2.2"
@@ -91,6 +93,10 @@ System.config({
     },
     "github:jspm/nodelibs-process@0.1.0": {
       "process": "npm:process@0.10.0"
+    },
+    "github:twbs/bootstrap@3.3.2": {
+      "css": "github:systemjs/plugin-css@0.1.0",
+      "jquery": "github:components/jquery@2.1.3"
     },
     "npm:core-js@0.4.9": {
       "process": "github:jspm/nodelibs-process@0.1.0"

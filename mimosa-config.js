@@ -3,6 +3,7 @@ exports.config = {
     '6to5',
     'copy',
     'server',
+    'stylus',
     'jshint',
     'minify-js',
     'minify-css',

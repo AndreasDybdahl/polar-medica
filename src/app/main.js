@@ -1,5 +1,5 @@
 import 'bootstrap';
-import '../style/site.css!'
+import 'style/site.css!'
 
 import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';

@@ -1,0 +1,13 @@
+{
+  "jspm": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YoloDev/mimosa-aurelia-skeleton.git"
+  },
+  "keywords": []
+}

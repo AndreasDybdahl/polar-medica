@@ -1,4 +1,4 @@
-import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
 import 'style/site.css!'
 
 import {LogManager} from 'aurelia-framework';

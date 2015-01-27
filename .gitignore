@@ -45,3 +45,6 @@ Temporary Items
 # Modules
 jspm_packages
 node_modules
+
+# Built
+lib

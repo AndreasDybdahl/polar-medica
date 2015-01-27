@@ -1,5 +1,8 @@
 {
   "jspm": {
+    "directories": {
+      "lib": "lib/app"
+    },
     "dependencies": {
       "aurelia-bootstrapper": "^0.9.2",
       "bootstrap": "^3.3.2",

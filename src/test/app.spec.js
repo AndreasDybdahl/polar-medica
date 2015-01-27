@@ -1,10 +1,10 @@
 import {App} from 'app/app';
-import {RouterShim} from './utils';
+import {RouterStub} from './utils';
 
 describe('the App module', () => {
   let sut;
 
-  beforeEach(() => { sut = new App(new RouterShim()); });
+  beforeEach(() => { sut = new App(new RouterStub()); });
 
   it('contains a router property', () => {
     expect(sut.router).toBeDefined();

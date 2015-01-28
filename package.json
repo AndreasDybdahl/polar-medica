@@ -7,7 +7,7 @@
       "aurelia-bootstrapper": "^0.9.2",
       "aurelia-router": "^0.5.1",
       "bootstrap": "^3.3.2",
-      "chai": "github:Alxandr/chai@1.9.3",
+      "chai": "github:Alxandr/chai@^1.10.1",
       "css": "^0.1.0"
     }
   },

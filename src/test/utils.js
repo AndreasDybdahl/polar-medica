@@ -1,3 +1,7 @@
+import chai from 'chai';
+
+export let expect = chai.expect;
+
 export class RouterStub {
   configure(handler) {
     this.routes = [];

@@ -13,7 +13,7 @@ System.config({
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.2",
     "aurelia-router": "github:aurelia/router@0.5.1",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
-    "chai": "npm:chai@1.10.0",
+    "chai": "github:Alxandr/chai@1.9.3",
     "css": "github:systemjs/plugin-css@0.1.0",
     "github:aurelia/binding@0.3.2": {
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",

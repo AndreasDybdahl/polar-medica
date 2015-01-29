@@ -1,4 +1,4 @@
-import {App} from 'app/app';
+import {App} from 'app/routes/app';
 import {expect, RouterStub} from './utils';
 
 describe('the App module', () => {

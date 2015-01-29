@@ -1,4 +1,4 @@
-import {BlogService} from 'app/services/blog';
+import {BlogService} from '../../services/blog';
 
 import moment from 'moment';
 

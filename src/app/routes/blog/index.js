@@ -1,5 +1,5 @@
 import {Router} from 'aurelia-router';
-import {BlogService} from 'app/services/blog';
+import {BlogService} from '../../services/blog';
 
 export class Index {
   static inject() { return [Router, BlogService]; }

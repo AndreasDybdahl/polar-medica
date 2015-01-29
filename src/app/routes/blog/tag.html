@@ -1,7 +1,7 @@
 <template>
   <import from='../../behaviors/markdown'></import>
 
-  <h1>Recent posts</h1>
+  <h1>Tag: ${tag}</h1>
 
   <article repeat.for="post of posts">
     <h2><a href.bind="$parent.url(post)">${post.title}</a> <small class="date">${$parent.date(post)}</small></h2>

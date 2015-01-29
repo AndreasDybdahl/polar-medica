@@ -45,22 +45,26 @@ function unique(arr) {
   });
 }
 
+function paginate(list, page, pageSize) {
+  let pages = Math.ceil(list.length - 1 / pageSize);
+  if (pages === 0)
+    pages = 1;
+
+  if (page > pages)
+    throw new Error(`There does not exist ${page} pages`);
+
+  let result = list.slice((page - 1) * pageSize, pageSize);
+  return {
+    posts: result,
+    page: page,
+    total: pages
+  };
+}
+
 export class BlogService {
   getLatest(page = 1) {
     return new Promise(resolve => {
-      let pages = Math.ceil(posts.length - 1 / PAGE_SIZE);
-      if (pages === 0)
-        pages = 1;
-
-      if (page > pages)
-        throw new Error(`There does not exist ${page} pages`);
-
-      let result = posts.slice((page - 1) * PAGE_SIZE, PAGE_SIZE);
-      resolve({
-        posts: result,
-        page: page,
-        total: pages
-      });
+      resolve(paginate(posts, page, PAGE_SIZE));
     });
   }
 
@@ -84,6 +88,13 @@ export class BlogService {
         return resolve(null);
 
       resolve(post[0]);
+    });
+  }
+
+  getPostsForTag(tag, page = 1) {
+    return new Promise(resolve => {
+      let tagPosts = posts.filter(p => p.tags.indexOf(tag) > -1);
+      resolve(paginate(tagPosts, page, PAGE_SIZE));
     });
   }
 }

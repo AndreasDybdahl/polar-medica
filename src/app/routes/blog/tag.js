@@ -1,32 +1,22 @@
 import {BlogService} from '../../services/blog';
+import {List} from './list';
 
 import moment from 'moment';
 
-export class List {
+export class Tag extends List {
   static inject() { return [BlogService]; }
   constructor(blogService) {
     this.blogService = blogService;
   }
 
-  activate() {
-    return this.blogService.getLatest()
+  activate(params) {
+    let {tag} = params;
+    this.tag = tag;
+    return this.blogService.getPostsForTag(tag)
       .then(({posts, total, page}) => {
         this.posts = posts;
         this.total = total;
         this.page = page;
       });
-  }
-
-  url(post) {
-    let date = moment(post.date);
-    return `#/blog/${date.format('YYYY/MM/DD')}/${post.slug}/`
-  }
-
-  tagUrl(tag) {
-    return `#/blog/tags/${tag}/`;
-  }
-
-  date(post) {
-    return moment(post.date).format('MMM D');
   }
 }

@@ -25,3 +25,4 @@ import './routes/redirect';
 import './routes/blog/index';
 import './routes/blog/list';
 import './routes/blog/post';
+import './routes/blog/tag';

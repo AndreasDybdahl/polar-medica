@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const PAGE_SIZE = 5;
 
 let posts = [
@@ -70,5 +72,18 @@ export class BlogService {
     });
   }
 
+  getPost(year, month, date, slug) {
+    return new Promise(resolve => {
+      let dateMatch = `${year}-${month}-${date}`;
+      let post = posts.filter(p => {
+        let date = moment(p.date).format('YYYY-MM-DD');
+        return date === dateMatch && p.slug === slug;
+      });
 
+      if (post.length === 0)
+        return resolve(null);
+
+      resolve(post[0]);
+    });
+  }
 }

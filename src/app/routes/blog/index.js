@@ -9,7 +9,8 @@ export class Index {
 
     router.configure(config => {
       config.map([
-        { route: ['', ':page'], moduleId: './list', nav: true, title: 'Latest Posts' }
+        { route: ['', 'page/:page'],          moduleId: './list', nav: true, title: 'Latest Posts' },
+        { route: ':year/:month/:date/:slug',  moduleId: './post' }
       ]);
     });
   }

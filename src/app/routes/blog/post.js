@@ -8,12 +8,15 @@ export class Index {
     this.blogService = blogService;
   }
 
-  activate() {
-    return this.blogService.getLatest()
-      .then(result => {
-        this.posts = result.posts;
-        this.total = result.total;
-        this.page = result.page;
+  canActivate(params) {
+    let {date, month, year, slug} = params;
+    return this.blogService.getPost(year, month, date, slug)
+      .then(post => {
+        if (post === null)
+          return false;
+
+        this.post = post;
+        return true;
       });
   }
 

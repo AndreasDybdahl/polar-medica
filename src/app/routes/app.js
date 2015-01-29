@@ -7,7 +7,7 @@ export class App {
     this.router.configure(config => {
       config.title = 'Application Title';
       config.map([
-        { route: '',      moduleId: './blog/index', nav: true, title: 'Home' }
+        { route: 'blog',      moduleId: './blog/index', nav: true, title: 'Blog' }
       ]);
     });
   }

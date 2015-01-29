@@ -15,6 +15,8 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "chai": "github:Alxandr/chai@1.10.1",
     "css": "github:systemjs/plugin-css@0.1.0",
+    "moment": "github:moment/moment@2.9.0",
+    "showdown": "github:showdownjs/showdown@0.3.4",
     "github:aurelia/binding@0.3.2": {
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
       "aurelia-task-queue": "github:aurelia/task-queue@0.2.2"

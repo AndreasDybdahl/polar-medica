@@ -1,0 +1,3 @@
+<template>
+  <reouter-view></reouter-view>
+</template>

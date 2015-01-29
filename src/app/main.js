@@ -14,5 +14,5 @@ export function configure(aurelia) {
     .router()
     .eventAggregator();
 
-  aurelia.start().then(a => a.setRoot('lib/app/app', document.body));
+  aurelia.start().then(a => a.setRoot('lib/app/routes/app', document.body));
 }

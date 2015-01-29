@@ -36,7 +36,7 @@ System.config({
     },
     "github:aurelia/dependency-injection@0.4.1": {
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
-      "core-js": "npm:core-js@0.4.9"
+      "core-js": "npm:core-js@0.4.10"
     },
     "github:aurelia/framework@0.8.4": {
       "aurelia-binding": "github:aurelia/binding@0.3.2",
@@ -49,7 +49,7 @@ System.config({
     },
     "github:aurelia/history-browser@0.2.3": {
       "aurelia-history": "github:aurelia/history@0.2.2",
-      "core-js": "npm:core-js@0.4.9"
+      "core-js": "npm:core-js@0.4.10"
     },
     "github:aurelia/loader-default@0.4.1": {
       "aurelia-loader": "github:aurelia/loader@0.3.3",
@@ -58,7 +58,7 @@ System.config({
     },
     "github:aurelia/loader@0.3.3": {
       "aurelia-html-template-element": "github:aurelia/html-template-element@0.1.2",
-      "core-js": "npm:core-js@0.4.9",
+      "core-js": "npm:core-js@0.4.10",
       "webcomponentsjs": "github:webcomponents/webcomponentsjs@0.5.4"
     },
     "github:aurelia/router@0.5.1": {
@@ -66,7 +66,7 @@ System.config({
       "aurelia-history": "github:aurelia/history@0.2.2",
       "aurelia-path": "github:aurelia/path@0.4.1",
       "aurelia-route-recognizer": "github:aurelia/route-recognizer@0.2.2",
-      "core-js": "npm:core-js@0.4.9"
+      "core-js": "npm:core-js@0.4.10"
     },
     "github:aurelia/templating-binding@0.8.3": {
       "aurelia-binding": "github:aurelia/binding@0.3.2",
@@ -76,7 +76,7 @@ System.config({
       "aurelia-binding": "github:aurelia/binding@0.3.2",
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.1",
       "aurelia-templating": "github:aurelia/templating@0.8.6",
-      "core-js": "npm:core-js@0.4.9"
+      "core-js": "npm:core-js@0.4.10"
     },
     "github:aurelia/templating-router@0.9.2": {
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.1",
@@ -94,10 +94,7 @@ System.config({
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
       "aurelia-path": "github:aurelia/path@0.4.1",
       "aurelia-task-queue": "github:aurelia/task-queue@0.2.2",
-      "core-js": "npm:core-js@0.4.9"
-    },
-    "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.0.1"
+      "core-js": "npm:core-js@0.4.10"
     },
     "github:jspm/nodelibs-process@0.1.0": {
       "process": "npm:process@0.10.0"
@@ -106,24 +103,8 @@ System.config({
       "css": "github:systemjs/plugin-css@0.1.0",
       "jquery": "github:components/jquery@2.1.3"
     },
-    "npm:buffer@3.0.1": {
-      "base64-js": "npm:base64-js@0.0.8",
-      "ieee754": "npm:ieee754@1.1.4",
-      "is-array": "npm:is-array@1.0.1"
-    },
-    "npm:chai@1.10.0": {
-      "assertion-error": "npm:assertion-error@1.0.0",
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "deep-eql": "npm:deep-eql@0.1.3",
-      "process": "github:jspm/nodelibs-process@0.1.0",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
-    },
-    "npm:core-js@0.4.9": {
+    "npm:core-js@0.4.10": {
       "process": "github:jspm/nodelibs-process@0.1.0"
-    },
-    "npm:deep-eql@0.1.3": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "type-detect": "npm:type-detect@0.1.1"
     }
   }
 });

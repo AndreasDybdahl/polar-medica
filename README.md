@@ -1,4 +1,5 @@
 # mimosa-aurelia-skeleton
+[![Build Status](https://snap-ci.com/YoloDev/mimosa-aurelia-skeleton/branch/master/build_image)](https://snap-ci.com/YoloDev/mimosa-aurelia-skeleton/branch/master)
 
 ## Install
 

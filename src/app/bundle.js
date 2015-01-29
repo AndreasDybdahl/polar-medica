@@ -13,15 +13,15 @@ import 'moment';
 import 'showdown';
 
 // Services
-import 'services/blog';
+import './services/blog';
 
 // Behaviors
-import 'behaviors/markdown';
+import './behaviors/markdown';
 
 // Routes
-import 'routes/app';
-import 'routes/redirect';
+import './routes/app';
+import './routes/redirect';
 
-import 'routes/blog/index';
-import 'routes/blog/list';
-import 'routes/blog/post';
+import './routes/blog/index';
+import './routes/blog/list';
+import './routes/blog/post';

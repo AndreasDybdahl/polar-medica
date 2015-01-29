@@ -3,9 +3,6 @@ System.config({
     "*": "*.js",
     "app/*": "lib/app/*.js",
     "style/*": "lib/style/*.js",
-    "services/*": "lib/app/services/*.js",
-    "behaviors/*": "lib/app/behaviors/*.js",
-    "routes/*": "lib/app/routes/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
   }

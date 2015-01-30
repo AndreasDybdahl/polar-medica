@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     jspm: {
       loadFiles: ['lib/test/**/*.spec.js'],
-      serveFiles: ['lib/**/*.js', 'jspm_packages/**/*', 'config.js']
+      serveFiles: ['lib/**/*', 'jspm_packages/**/*', 'config.js']
     },
 
 

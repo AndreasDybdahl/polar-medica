@@ -9,7 +9,7 @@ export class Tag extends List {
     this.blogService = blogService;
   }
 
-  activate(params) {
+  activate(params, qs, config) {
     let {tag} = params;
     this.tag = tag;
     return this.blogService.getPostsForTag(tag)
@@ -17,6 +17,8 @@ export class Tag extends List {
         this.posts = posts;
         this.total = total;
         this.page = page;
+
+        config.navModel.title = `Tag: ${tag}`;
       });
   }
 }

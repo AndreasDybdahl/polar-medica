@@ -1,3 +1,5 @@
+import {Metadata} from 'aurelia-framework';
+
 import moment from 'moment';
 
 const PAGE_SIZE = 5;
@@ -62,6 +64,8 @@ function paginate(list, page, pageSize) {
 }
 
 export class BlogService {
+  static metadata(){ return Metadata.singleton(); }
+
   getLatest(page = 1) {
     return new Promise(resolve => {
       resolve(paginate(posts, page, PAGE_SIZE));

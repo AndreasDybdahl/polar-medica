@@ -2,6 +2,7 @@ import {BlogService} from '../../services/blog';
 import {List} from './list';
 
 import moment from 'moment';
+import view from './tag.html!';
 
 export class Tag extends List {
   static inject() { return [BlogService]; }
@@ -20,5 +21,9 @@ export class Tag extends List {
 
         config.navModel.title = `Tag: ${tag}`;
       });
+  }
+
+  getViewStrategy() {
+    return view;
   }
 }

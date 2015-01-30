@@ -1,5 +1,7 @@
 import {Router} from 'aurelia-router';
 
+import view from './app.html!';
+
 export class App {
   static inject() { return [Router]; }
   constructor(router) {
@@ -11,5 +13,9 @@ export class App {
         { route: '',          moduleId: './redirect', redirect: '/blog' }
       ]);
     });
+  }
+
+  getViewStrategy() {
+    return view;
   }
 }

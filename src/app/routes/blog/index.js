@@ -1,6 +1,8 @@
 import {Router} from 'aurelia-router';
 import {BlogService} from '../../services/blog';
 
+import view from './index.html';
+
 export class Index {
   static inject() { return [Router, BlogService]; }
   constructor(router, blogService) {
@@ -14,5 +16,9 @@ export class Index {
         { route: 'tags/:tag',                 moduleId: './tag' }
       ]);
     });
+  }
+
+  getViewStrategy() {
+    return view;
   }
 }

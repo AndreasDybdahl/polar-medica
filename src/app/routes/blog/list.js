@@ -1,6 +1,7 @@
 import {BlogService} from '../../services/blog';
 
 import moment from 'moment';
+import view from './list.html!';
 
 export class List {
   static inject() { return [BlogService]; }
@@ -14,6 +15,7 @@ export class List {
         this.posts = posts;
         this.total = total;
         this.page = page;
+        this.md = "*this is markdown!*";
       });
   }
 
@@ -28,5 +30,9 @@ export class List {
 
   date(post) {
     return moment(post.date).format('MMM D');
+  }
+
+  getViewStrategy() {
+    return view;
   }
 }

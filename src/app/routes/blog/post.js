@@ -1,6 +1,7 @@
 import {BlogService} from '../../services/blog';
 
 import moment from 'moment';
+import view from './post.html!';
 
 export class Index {
   static inject() { return [BlogService]; }
@@ -28,5 +29,9 @@ export class Index {
 
   date(post) {
     return moment(post.date).format('MMM D');
+  }
+
+  getViewStrategy() {
+    return view;
   }
 }

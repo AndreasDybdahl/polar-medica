@@ -17,3 +17,5 @@ start:
 
 test:
 	karma start --no-auto-watch --single-run
+
+testandbuild: build test

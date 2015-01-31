@@ -1,0 +1,2 @@
+// Behaviors
+import './behaviors/classes';

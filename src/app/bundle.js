@@ -18,4 +18,5 @@ import './redirect'
 
 // Components
 import './markdown/bundle'
+import './css-classes/bundle'
 import './blog/bundle'

@@ -3,6 +3,7 @@ System.config({
     "*": "*.js",
     "app/*": "lib/app/*.js",
     "style/*": "lib/style/*.js",
+    "plugin-html/*": "lib/html/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
   }
@@ -28,8 +29,8 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "chai": "github:Alxandr/chai@1.10.1",
     "css": "github:systemjs/plugin-css@0.1.0",
-    "html": "lib/html/html",
-    "html/generate": "lib/html/generate",
+    "html": "plugin-html/html",
+    "html/generate": "plugin-html/generate",
     "moment": "github:moment/moment@2.9.0",
     "showdown": "github:showdownjs/showdown@0.3.4",
     "github:aurelia/binding@0.3.2": {

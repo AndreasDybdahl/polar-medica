@@ -1,4 +1,4 @@
-BUNDLE    := lib/app/main + lib/app/bundle
+BUNDLE    := app/main + app/bundle
 
 build:
 	mimosa build

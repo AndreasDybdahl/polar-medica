@@ -28,6 +28,7 @@ System.config({
     "aurelia-templating-router": "github:aurelia/templating-router@0.9.2",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "chai": "github:Alxandr/chai@1.10.1",
+    "core-js": "npm:core-js@0.4.10",
     "css": "github:systemjs/plugin-css@0.1.0",
     "html": "plugin-html/html",
     "html/generate": "plugin-html/generate",

@@ -1,4 +1,4 @@
-BUNDLE    := app/main + app/bundle
+BUNDLE    := app/main + app/bundle + core-js
 
 build:
 	mimosa build

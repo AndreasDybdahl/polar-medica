@@ -1,5 +1,3 @@
-export { default as _generate } from './generate';
-
 /*
   HTML plugin
 */
@@ -538,15 +536,15 @@ export function translate(load) {
   var source = load.source;
   var deps = findDependencies(source);
   load.metadata.format = 'cjs';
-  load.metadata.deps = ['html'].concat(deps.map(function(dep) {
-    return dep.path;
-  }));
+  // load.metadata.deps = ['html/generate'].concat(deps.map(function(dep) {
+  //   return dep.path;
+  // }));
 
   var offset = 0;
   var name = load.name.split('!')[0];
   var code = [
     //"debugger;",
-    "var generate = require('html')._generate;",
+    "var generate = require('html/generate')['default'];",
     "var deps = [];"
   ].concat(deps.map(function(dep, index) {
     var pos_start = dep.pos[0] - offset,
@@ -561,6 +559,5 @@ export function translate(load) {
     "module.exports = generate(" + escapeString(name, 'single') + ", " + escapeString(source, 'single') + ", deps);"
   ]).join('\n');
 
-  //debugger;
   return code;
 };

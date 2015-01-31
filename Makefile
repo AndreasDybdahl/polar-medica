@@ -14,3 +14,6 @@ deploy:
 
 start:
 	mimosa watch -s
+
+test:
+	karma start --no-auto-watch --single-run

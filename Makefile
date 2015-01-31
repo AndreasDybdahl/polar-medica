@@ -1,21 +1,21 @@
+BUNDLE    := lib/app/main + lib/app/bundle
+
 build:
 	mimosa build
 
 bundle:
-	jspm bundle lib/app/main lib/app.js
+	jspm bundle $(BUNDLE) lib/app.js
 
 debug-bundle:
-	node-debug jspm bundle lib/app/main lib/app.js
+	node-debug jspm bundle $(BUNDLE) lib/app.js
 
 deploy:
-	#jspm bundle lib/app/main lib/app.min.js --minify --inject
+	#jspm bundle $(BUNDLE) lib/app.min.js --minify --inject
 	# minification is broken, run unminified for now
-	jspm bundle lib/app/main lib/app.js --inject
+	jspm bundle $(BUNDLE) lib/app.js --inject
 
 start:
 	mimosa watch -s
 
 test:
 	karma start --no-auto-watch --single-run
-
-testandbuild: build test

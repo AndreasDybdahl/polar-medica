@@ -1,4 +1,4 @@
-import {BlogService} from '../../services/blog';
+import {BlogService} from '../services/blog';
 import {List} from './list';
 
 import moment from 'moment';

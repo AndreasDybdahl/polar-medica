@@ -1,5 +1,5 @@
 import {Router} from 'aurelia-router';
-import {BlogService} from '../../services/blog';
+import {BlogService} from '../services/blog';
 
 import view from './index.html!';
 

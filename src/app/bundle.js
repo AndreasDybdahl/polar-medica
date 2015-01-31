@@ -12,17 +12,10 @@ import 'aurelia-history-browser';
 import 'moment';
 import 'showdown';
 
-// Services
-import './services/blog';
+// Common
+import './app'
+import './redirect'
 
-// Behaviors
-import './behaviors/markdown';
-
-// Routes
-import './routes/app';
-import './routes/redirect';
-
-import './routes/blog/index';
-import './routes/blog/list';
-import './routes/blog/post';
-import './routes/blog/tag';
+// Components
+import './markdown/bundle'
+import './blog/bundle'

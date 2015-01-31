@@ -1,8 +1,6 @@
 import 'bootstrap/css/bootstrap.css!';
 import 'style/site.css!'
 
-import './bundle';
-
 import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import {bootstrap} from 'aurelia-bootstrapper';
@@ -17,5 +15,5 @@ bootstrap(aurelia => {
     .router()
     .eventAggregator();
 
-  aurelia.start().then(a => a.setRoot('app/routes/app', document.body));
+  aurelia.start().then(a => a.setRoot('app/app', document.body));
 });

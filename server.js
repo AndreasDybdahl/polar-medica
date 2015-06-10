@@ -52,9 +52,9 @@ module.exports = {
     app.use(compression());
     app.use('/lib', static('lib'));
     app.use('/jspm_packages', static('jspm_packages'));
-    app.use(staticFile('config.js', 'text/javascript'));
+    app.use(staticFile('config.js', 'text/javascript; charset=utf-8'));
     app.use(function(req, res, next) {
-      if (req.url.indexOf('/lib') === 0) {
+      if (req.url.indexOf('/lib') === 0 || req.url.indexOf('/jspm_packages') === 0) {
         res.writeHead(404, 'Not Found');
         res.end();
         return;
@@ -65,7 +65,7 @@ module.exports = {
 
     var indexFile = path.join(__dirname, 'index.html');
     app.use(function(req, res) {
-      returnFile(req, res, indexFile, 'text/html', '<script src="/socket.io/socket.io.js"></script>\n<script src="/lib/reload-client.js"></script>\n');
+      returnFile(req, res, indexFile, 'text/html; charset=utf-8', '<script src="/socket.io/socket.io.js"></script>\n<script src="/lib/reload-client.js"></script>\n');
     });
 
 

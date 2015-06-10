@@ -1,6 +1,6 @@
 exports.config = {
   modules: [
-    '6to5',
+    'babel',
     'copy',
     'server',
     'stylus',
@@ -30,9 +30,14 @@ exports.config = {
     additionalDirs: ['lib']
   },
 
-  to5: {
+  babel: {
     options: {
-      modules: 'system'
+      modules: 'system',
+      stage: 1,
+      optional: [
+        'es7.classProperties'
+      ],
+      plugins: ['aurelia-babel-plugin']
     }
   }
 };

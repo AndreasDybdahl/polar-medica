@@ -7,7 +7,7 @@ import view from './tag.html!';
 export class Tag extends List {
   static inject() { return [BlogService]; }
   constructor(blogService) {
-    this.blogService = blogService;
+    super(blogService);
   }
 
   activate(params, qs, config) {

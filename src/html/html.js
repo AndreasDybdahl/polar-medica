@@ -4,7 +4,7 @@
 
 var findDependencies = (function() {
 
-  var IMPORT_TAG = 'import';
+  var IMPORT_TAG = 'require';
   var IMPORT_ATTR = 'from';
 
   var Mode = {
@@ -472,7 +472,8 @@ function escapeString(str, quotes) {
 }
 
 function escapeAllowedCharacter(code, next) {
-  var hex;
+  var hex, 
+      json = false;
 
   if (code === 0x08 /* \b */ ) {
     return '\\b';

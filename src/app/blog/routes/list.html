@@ -3,6 +3,10 @@
   <import from="app/css-classes/behaviors/classes"></import>
 
   <h1 classes.bind="{test: true, prod: false}">Recent posts</h1>
+  
+  <div class="form-group">
+            <input type="text" class="form-control" placeholder="Test">
+          </div>
 
   <article repeat.for="post of posts">
     <h2><a href.bind="$parent.url(post)">${post.title}</a> <small class="date">${$parent.date(post)}</small></h2>

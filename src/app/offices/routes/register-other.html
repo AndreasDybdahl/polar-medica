@@ -1,0 +1,63 @@
+<template>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Annen informasjon</h3>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Gj.sn. kjøp pr lege/år" value.bind="parent.presumedPurchaseAmount">
+            </div>
+            <div class="form-group">
+              <select class="form-control" value.bind="parent.membershipStatus">
+                <option>Kundestatus</option>
+                <option value="signed">Signert</option>
+                <option value="willSign">Skal signere</option>
+                <option value="positive">Positiv</option>
+                <option value="notInterested">Ikke interessert</option>
+                <option value="veryNegative">Direkte negativ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control" value.bind="parent.customerSatisfaction">
+                <option>Kundetilfredshet</option>
+                <option value="satisfied">Fornøyd</option>
+                <option value="somewhatSatisfied">Noe misfornøyd</option>
+                <option value="veryUnsatisfied">Meget misfornøyd</option>
+                <option value="unknown">Vet ikke</option>
+                <option value="requiresAttention">Følges opp</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <select class="form-control" value.bind="parent.orderHistory">
+                <option>Bestillingsprofil</option>
+                <option value="structured">Strukturert</option>
+                <option value="frequentSmall">Hyppig og smått</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control" value.bind="parent.followUp">
+                <option>Oppfølging</option>
+                <option value="onOrder">Oppdrag på bestilling</option>
+                <option value="needHelp">Hjelp til nettbestilling</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Kommentarer" value.bind="parent.specialRequirements"></textarea>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button click.trigger="back()" class="btn btn-default">Tilbake</button>
+            <button click.trigger="save()" class="btn btn-default pull-right">Lagre</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

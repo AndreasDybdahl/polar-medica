@@ -7,6 +7,7 @@ import 'aurelia-event-aggregator';
 import 'aurelia-router';
 import 'aurelia-history';
 import 'aurelia-history-browser';
+import 'aurelia-http-client';
 
 // Extra libraries
 import 'moment';
@@ -19,4 +20,4 @@ import './redirect'
 // Components
 import './markdown/bundle'
 import './css-classes/bundle'
-import './blog/bundle'
+import './offices/bundle'

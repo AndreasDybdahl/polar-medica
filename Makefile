@@ -14,6 +14,10 @@ deploy:
 	# minification is broken, run unminified for now
 	jspm bundle $(BUNDLE) lib/app.js --inject
 
+update:
+	npm update
+	jspm update --save
+
 start:
 	mimosa watch -s
 

@@ -11,4 +11,8 @@ export class RouterStub {
   map(routes) {
     this.routes = this.routes.concat(routes);
   }
+  
+  addPipelineStep() {
+     
+  }
 }

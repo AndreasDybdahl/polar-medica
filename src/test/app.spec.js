@@ -11,6 +11,6 @@ describe('the App module', () => {
   });
 
   it('configures the routers title', () => {
-    expect(sut.router.title).to.equal('Application Title');
+    expect(sut.router.title).to.equal('Polar-Medica');
   });
 });

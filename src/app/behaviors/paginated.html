@@ -1,0 +1,39 @@
+<template>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Kontornavn</th>
+        <th>Hovedkontakt</th>
+        <th>Tlf. nr.</th>
+        <th>Ant. leger</th>
+        <th>Rediger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="office of offices">
+        <td>${office.name}</td>
+        <td>${office.mainContact.name}</td>
+        <td>${office.phoneNumber.number}</td>
+        <td>${office.doctors.length}</td>
+        <td><a href.bind="$parent.editOffice(office.id)">Rediger</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <nav>
+    <ul class="pagination">
+      <li>
+        <a href.bind="goTo(relative(-1))" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li repeat.for="count of getPages(pageCount)" class.bind="$parent.isActive(count + 1) ? 'active' : ''">
+        <a href.bind="$parent.goTo(count + 1)">${count + 1}</a>
+      </li>
+      <li>
+        <a href.bind="goTo(relative(1))" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</template>

@@ -1,0 +1,42 @@
+<template>
+  <require from="../../behaviors/paginated"></require>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Kontoroversikt</h3>
+        </div>
+
+        <div class="panel-body">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" keyup.delegate="pressedKey($event)" value.bind="doctorName" placeholder="Legenavn">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" click.delegate="getFilteredPaginated(1, doctorName)">Søk</button>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Kontornavn">
+                <span class="input-group-btn">
+                  <button class="btn btn-default">Søk</button>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <button show.bind="filter" class="btn btn-default" click.delegate="removeFilter()">Fjern filter: ${filter}</button>
+            <paginated offices.bind="offices" page.bind="page" page-count.bind="pageCount" filter.bind="filter" base-path.bind="'#/offices/page'"></paginated>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

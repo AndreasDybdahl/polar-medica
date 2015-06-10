@@ -38,6 +38,14 @@ exports.config = {
         'es7.classProperties'
       ],
       plugins: ['aurelia-babel-plugin']
+    },
+
+    overrides: {
+      'src[\\/\\\\]html': {
+        options: {
+          plugins: null
+        }
+      }
     }
   }
 };

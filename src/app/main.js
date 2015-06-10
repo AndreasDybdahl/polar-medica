@@ -1,4 +1,4 @@
-import 'bootstrap/css/bootstrap-sandstone.min.css!';
+import './bootstrap-sandstone.min.css!';
 import 'font-awesome/css/font-awesome.css!';
 import 'style/site.css!'
 

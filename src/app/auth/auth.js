@@ -27,19 +27,21 @@ export class AuthService {
   }
   
   login(username, password) {
-    return this.http.post('http://localhost:24655/token', { 
+    return this.http.post('token', { 
         body: formEncode({ grant_type: 'password', username: username, password: password }),
         skipAuth: true
       }).then(this._handleTokenResponse.bind(this));
   }
   
-  logout() {
+  logout({ redirect = true } = { }) {
     console.log('Logging out');
     this.user = null;
     this.token = null;
     localStorage.setItem(LOCALSTORAGE_KEY, null);
     
-    window.location.hash = '#/login';
+    if(redirect) {
+      window.location.hash = '#/login';
+    }
   }
   
   attemptRelogin() {
@@ -50,15 +52,24 @@ export class AuthService {
         return resolve(false); 
       }
       
-      resolve(this.http.post('http://localhost:24655/token', {
+      resolve(this.http.post('token', {
         body: formEncode({ grant_type: 'refresh_token', refresh_token: refreshToken }),
         skipAuth: true
-      }).then(this._handleTokenResponse.bind(this)));
+      })
+      .then(this._handleTokenResponse.bind(this))
+      .catch(() => {
+        this.logout({ redirect: false }); 
+      }));
     });
   }
   
   _ensureNotExpired() {
     return new Promise(resolve => {
+      if(!this.timeout) {
+        resolve();
+        return;
+      }
+      
       if(Date.now() >= this.timeout) {
         console.log('Session expired - Fetching new token');
         resolve(this.attemptRelogin()); 
@@ -70,7 +81,7 @@ export class AuthService {
   }
   
   _fetchUser() {
-    return this.http.get('http://localhost:24655/api/account/me').then(response => response.json());
+    return this.http.get('api/account/me').then(response => response.json());
   }
   
   _handleTokenResponse(response) {
@@ -143,7 +154,7 @@ export class HttpClient extends SimpleClient {
     }
     
     return this.authService._ensureNotExpired().then(() => { 
-      if (!opts.skipAuth && uri.indexOf('http://localhost:24655/api') !== -1 && this.authService.token !== null) {
+      if (!opts.skipAuth && uri.indexOf('api') !== -1 && this.authService.token !== null) {
         opts.headers['Authorization'] = `Bearer ${this.authService.token}`;
       }
       

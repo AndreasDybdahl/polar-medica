@@ -7,30 +7,30 @@ export class OfficeService {
   }
 
   post(data) {
-    return this.http.post('http://localhost:24655/api/office', { body: data });
+    return this.http.post('api/office', { body: data });
   }
   
   put(data) {
-    return this.http.put('http://localhost:24655/api/office', { body: data });
+    return this.http.put('api/office', { body: data });
   }
 
   getAll(data) {
-    return this.http.get('http://localhost:24655/api/office')
+    return this.http.get('api/office')
       .then(response => response.json());
   }
   
   getPaginated(page, pageSize) {
-    return this.http.get(`http://localhost:24655/api/office/page/${page}`)
+    return this.http.get(`api/office/page/${page}`)
       .then(response => response.json());
   }
   
   getPaginatedFiltered(page, name, pageSize) {
-    return this.http.get(`http://localhost:24655/api/office/page/${page}/${name}`)
+    return this.http.get(`api/office/page/${page}/${name}`)
       .then(response => response.json());
   }
   
   get(id) {
-    return this.http.get(`http://localhost:24655/api/office/${id}`)
+    return this.http.get(`api/office/${id}`)
       .then(response => response.json());
   }
 }

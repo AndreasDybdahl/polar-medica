@@ -7,7 +7,7 @@ export class Register {
   constructor(officeService) {
     this.officeService = officeService;
     
-    this.initTestData();
+    this.initData();
   }
   
   configureRouter(config, router){

@@ -36,6 +36,7 @@ export class SimpleClient extends MessageHandler {
     super();
     this.handler = handler;
     this.baseUrl = 'https://polarmedica.azurewebsites.net/';
+//    this.baseUrl = 'https://localhost:24655/';
 
     // TODO: Add default values to stuff like common headers etc.
   }

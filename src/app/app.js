@@ -20,7 +20,17 @@ export class App {
 
     this.router = router;
   }
+
   getViewStrategy() {
     return view;
+  }
+  
+  showLink() {
+    if(this.auth.user) {
+      return true; 
+    }
+    else {
+      return false; 
+    }
   }
 }

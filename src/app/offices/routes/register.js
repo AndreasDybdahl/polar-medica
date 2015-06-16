@@ -26,16 +26,16 @@ export class Register {
     this.mainContact = {
       name: '',
       email: '',
-      phoneNumbers: {
+      phoneNumber: {
         number: '',
         type: 'mobile'
       },
-      position: 'doctor'
+      position: 'mainContact'
     };
     this.secretary = {
       name: '',
       email: '',
-      phoneNumbers: {
+      phoneNumber: {
         number: '',
         type: 'mobile'
       },

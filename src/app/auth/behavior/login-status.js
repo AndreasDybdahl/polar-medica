@@ -19,10 +19,7 @@ export class LoginStatus {
     this.wait = Promise.all([
       loginView.loadViewFactory(viewEngine).then(val => this.loginViewFactory = val),
       logoutView.loadViewFactory(viewEngine).then(val => this.logoutViewFactory = val)
-    ]).then(() => {
-      console.log(this.loginViewFactory);
-      console.log(this.logoutViewFactory);
-    });
+    ]);
   }
 
   logout(e) {

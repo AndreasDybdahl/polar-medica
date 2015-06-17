@@ -12,7 +12,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" keyup.delegate="pressedKey($event)" value.bind="doctorName" placeholder="Legenavn">
+                <input type="text" class="form-control" keyup.delegate="pressedKey($event)" value.bind="doctorName" placeholder="Kontornavn">
                 <span class="input-group-btn">
                   <button class="btn btn-default" click.delegate="getFilteredPaginated(1, doctorName)">Søk</button>
                 </span>
@@ -23,7 +23,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Kontornavn">
+                <input type="text" class="form-control" placeholder="Legenavn">
                 <span class="input-group-btn">
                   <button class="btn btn-default">Søk</button>
                 </span>

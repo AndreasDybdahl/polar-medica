@@ -39,6 +39,8 @@ export class AuthService {
     this.token = null;
     localStorage.setItem(LOCALSTORAGE_KEY, null);
     
+    this.showNav(false);
+    
     if(redirect) {
       window.location.hash = '#/login';
     }
@@ -61,6 +63,16 @@ export class AuthService {
         this.logout({ redirect: false }); 
       }));
     });
+  }
+  
+  showNav(show) {
+    this.router.navigation.forEach(route => {
+      route.settings.isVisible = show;
+    });
+  }
+  
+  setRouter(router) {
+    this.router = router;
   }
   
   _ensureNotExpired() {
@@ -95,6 +107,9 @@ export class AuthService {
       .then(user => {
         console.log('Fetched user: ', user);
         this.user = user;
+      
+        this.showNav(true);
+      
         return user;
       })
       .catch(reject => {

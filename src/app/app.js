@@ -16,6 +16,7 @@ export class App {
     config.map([
         { route: 'offices',          moduleId: './offices/routes/index',    nav: true, settings: { isVisible: true }, title: 'Kontoroversikt' },
         { route: 'register',         moduleId: './offices/routes/register', nav: true, settings: { isVisible: true }, title: 'Registrer kontor' },
+        { route: 'email',            moduleId: './offices/routes/email',    nav: true, settings: { isVisible: true }, title: 'Send mail' },
         { route: 'login',            moduleId: './login/routes/login',      auth: false,                              title: 'Logg inn' },
         { route: '',                 redirect: '/offices' }
       ]);

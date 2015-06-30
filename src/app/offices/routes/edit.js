@@ -17,10 +17,20 @@ export class Info {
           }
           this.office = o;
         
-          this.office.mainContact.position = 'MainContact';
-          this.office.mainContact.officeId = this.office.id;
-          this.office.secretary.position = 'Secretary';
-          this.office.secretary.officeId = this.office.id;
+          if(!this.office.mainContact) {
+            this.office.mainContact = {
+              position: 'MainContact',
+              officeId: this.office.id
+            };
+          }
+        
+          if(!this.office.secretary) {
+            this.office.secretary = {
+              position: 'Secretary',
+              officeId: this.office.id
+            };
+          }
+        
           console.log(this.office);
         });
     }

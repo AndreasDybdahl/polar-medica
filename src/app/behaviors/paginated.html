@@ -6,6 +6,7 @@
         <th>Hovedkontakt</th>
         <th>Tlf. nr.</th>
         <th>Ant. leger</th>
+        <th>Signert</th>
         <th>Rediger</th>
       </tr>
     </thead>
@@ -15,6 +16,7 @@
         <td>${office.mainContact.name}</td>
         <td>${office.phoneNumber.number}</td>
         <td>${office.doctors.length}</td>
+        <td><i class.bind="$parent.signedStatus(office.membershipStatus)" aria-hidden="true"></i></td>
         <td><a href.bind="$parent.editOffice(office.id)">Rediger</a></td>
       </tr>
     </tbody>

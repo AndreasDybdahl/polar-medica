@@ -39,6 +39,14 @@ export class Info {
   }
   
   save() {
+    if(!this.office.mainContact.name || this.office.mainContact.name.length < 1) {
+      this.office.mainContact = null; 
+    }
+    
+    if(!this.office.secretary.name || this.office.secretary.name.length < 1 ) {
+      this.office.secretary = null; 
+    }
+    
     this.officeService.put(this.office); 
     
     window.location.hash = '#/';

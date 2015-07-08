@@ -42,6 +42,15 @@ export class Paginated {
       return '';
     }
   }
+   
+  signedStatus(status) {
+    if(status === 'Signed') {
+      return 'fa fa-check';
+    }
+    else {
+      return 'fa fa-times'; 
+    }
+  }
 
   getPages(count) {
     return Array.from(count);

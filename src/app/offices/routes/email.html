@@ -1,3 +1,3 @@
 <template>
-  <p repeat.for="office of offices">${office.email}</p>
+  <p><span repeat.for="office of offices" show.bind="office.email.length > 0 ? true : false">${office.email}, </span></p>
 </template>

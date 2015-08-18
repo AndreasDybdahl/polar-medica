@@ -1,13 +1,14 @@
-import {Container, inject, customElement, noView, bindable, skipContentProcessing} from 'aurelia-framework';
+import {Container, inject, customElement, noView, bindable, processContent} from 'aurelia-framework';
 import {ViewSlot, ViewEngine} from 'aurelia-templating';
 
 import loginView from './login.html!';
 import logoutView from './logout.html!';
+import {ViewCompileInstruction} from 'aurelia-templating';
 
 @customElement('login-status')
 @inject(Element, Container, ViewSlot, ViewEngine)
 @noView
-@skipContentProcessing
+@processContent(false)
 export class LoginStatus {
   @bindable user;
   
@@ -16,9 +17,11 @@ export class LoginStatus {
     this.viewSlot = viewSlot;
     this.container = container;
     
+    let options = new ViewCompileInstruction(false, true, null);
+    
     this.wait = Promise.all([
-      loginView.loadViewFactory(viewEngine).then(val => this.loginViewFactory = val),
-      logoutView.loadViewFactory(viewEngine).then(val => this.logoutViewFactory = val)
+      loginView.loadViewFactory(viewEngine, options).then(val => this.loginViewFactory = val),
+      logoutView.loadViewFactory(viewEngine, options).then(val => this.logoutViewFactory = val)
     ]);
   }
 

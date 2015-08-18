@@ -1,7 +1,7 @@
 import * as LogManager from 'aurelia-logging';
 import {ViewResources, CustomElement,
         AttachedBehavior, TemplateController} from 'aurelia-templating';
-import {TemplateRegistryViewStrategy} from 'aurelia-templating/view-strategy';
+import {TemplateRegistryViewStrategy} from 'aurelia-templating';
 import {Metadata, ResourceType, Origin} from 'aurelia-metadata';
 import {relativeToFile} from 'aurelia-path';
 import {TemplateRegistryEntry} from 'aurelia-loader';

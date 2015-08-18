@@ -8,6 +8,9 @@ import './routes/list';
 import './routes/edit';
 import './routes/editor';
 import './routes/register';
+import './routes/email';
+import './routes/stats';
+
 
 import './routes/register-office';
 import './routes/register-contacts';

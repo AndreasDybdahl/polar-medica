@@ -1,0 +1,32 @@
+<template>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Kontorstatistikk</h3>
+        </div>
+
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th repeat.for="data of organizedOffices">${data.name}</th>      
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Antall kontorer</th>
+                <td repeat.for="data of organizedOffices">${data.count}</td>
+              </tr>
+              <tr>
+                <th>Antall doktorer</th>
+                <td repeat.for="data of organizedOffices">${data.doctorCount}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

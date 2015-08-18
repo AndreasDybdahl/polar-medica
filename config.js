@@ -6,6 +6,7 @@ System.config({
     "style/*": "lib/style/*.js",
     "plugin-html/*": "lib/html/*.js",
     "http/*": "lib/http/*.js",
+    "nitter/*": "lib/nitter/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
   }

@@ -8,11 +8,15 @@ export class Login {
   constructor(authService, router) {
     this.auth = authService;
     this.roter = router;
+    this.loginFailed = false;
   }
   
   login() {
     this.auth.login(this.username, this.password).then(() => {
       this.roter.navigate('/offices');
+    })
+    .catch(reject => {
+      this.loginFailed = true;
     });
   }
   

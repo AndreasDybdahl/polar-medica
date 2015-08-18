@@ -1,11 +1,13 @@
 import {OfficeService} from '../services/offices';
+import {inject} from 'aurelia-framework';
 
 import view from './edit.html!';
 
+@inject(OfficeService)
 export class Info {
-  static inject() { return [OfficeService]; }
   constructor(officeService) {
     this.officeService = officeService;
+    this.maxCount = 20;
   }
   
   canActivate(params) {
@@ -36,6 +38,17 @@ export class Info {
     }
     
     return false;
+  }
+  
+  deleteFromStaff(index) {
+    if(this.office.doctors[index].position !== 'MainContact') {
+      this.office.doctors.splice(index, 1);
+    }
+    else {
+      this.office.doctors.splice(index, 1);
+      
+      this.office.mainContact = null;
+    }
   }
   
   save() {

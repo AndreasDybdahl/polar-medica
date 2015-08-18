@@ -1,3 +1,10 @@
-<template>
-  <p><span repeat.for="office of offices" show.bind="office.email.length > 0 ? true : false">${office.email}, </span></p>
+<template>  
+  <button class="btn btn-default" click.trigger="filter('None')">Ingen info</button>
+  <button class="btn btn-default" click.trigger="filter('Signed')">Signert</button>
+  <button class="btn btn-default" click.trigger="filter('WillSign')">Skal signere</button>
+  <button class="btn btn-default" click.trigger="filter('Positive')">Positiv</button>
+  <button class="btn btn-default" click.trigger="filter('NotInterested')">Ikke interessert</button>
+  <button class="btn btn-default" click.trigger="filter('VeryNegative')">Direkte negativ</button>
+  <button class="btn btn-default" click.trigger="filter('all')">Alle</button>
+  <p><span repeat.for="office of filteredOffices" show.bind="office.email.length > 0 ? true : false">${office.email}, </span></p>
 </template>

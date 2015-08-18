@@ -7,6 +7,7 @@ import {OfficeService} from '../services/offices';
 export class Email {
   constructor(officeService) {
     this.officeService = officeService;
+    this.filteredOffices = [];
   }
   
   activate() {
@@ -18,6 +19,22 @@ export class Email {
       .catch(reject => {
         return false;
       });
+  }
+  
+  filter(filter) {
+    if(filter !== 'all') {
+      this.filteredOffices = [];
+      
+      this.offices.forEach((office) => {
+        if(office.membershipStatus === filter) {
+          this.filteredOffices.push(office); 
+        }
+      }); 
+    }
+    else {
+      this.filteredOffices = [];
+      this.filteredOffices = this.offices; 
+    }
   }
   
   getViewStrategy() {

@@ -8,11 +8,11 @@ System.config({
     ]
   },
   paths: {
-    "app/*": "lib/app/*.js",
-    "style/*": "lib/style/*.js",
-    "plugin-html/*": "lib/html/*.js",
-    "http/*": "lib/http/*.js",
-    "nitter/*": "lib/nitter/*.js",
+    "app/*": "lib/app/*",
+    "style/*": "lib/style/*",
+    "plugin-html/*": "lib/html/*",
+    "http/*": "lib/http/*",
+    "nitter/*": "lib/nitter/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },

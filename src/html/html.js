@@ -543,6 +543,8 @@ export function translate(load) {
 
   var offset = 0;
   var name = load.name.split('!')[0];
+  name = name.substring(name.indexOf('lib/app'), name.length);
+  console.log(load);
   var code = [
     //"debugger;",
     "var generate = require('html/generate')['default'];",

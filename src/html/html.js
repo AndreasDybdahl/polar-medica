@@ -1,6 +1,7 @@
 /*
   HTML plugin
 */
+import * as path from 'path';
 
 var findDependencies = (function() {
 
@@ -543,8 +544,22 @@ export function translate(load) {
 
   var offset = 0;
   var name = load.name.split('!')[0];
-  name = name.substring(name.indexOf('lib/app'), name.length);
-  console.log(load);
+  name = path.relative(System.baseURL, name).replace(/\\/g, '/');
+//  debugger;
+  Object.keys(System.paths).map(p => [System.paths[p], p]).some(([real, virt]) => {
+    if (real.substring(real.length - 1) !== '*') return;
+    if (virt.substring(virt.length - 1) !== '*') return;
+    
+    real = real.substring(0, real.length - 1);
+    virt = virt.substring(0, virt.length - 1);
+    
+    if (name.substring(0, real.length) === real) {
+      name = virt + name.substring(real.length);
+      
+      return true;
+    }
+  });
+  
   var code = [
     //"debugger;",
     "var generate = require('html/generate')['default'];",

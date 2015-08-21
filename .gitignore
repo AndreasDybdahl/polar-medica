@@ -48,3 +48,6 @@ node_modules
 
 # Built
 lib
+
+# NPM
+npm-debug.log

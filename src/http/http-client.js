@@ -11,10 +11,10 @@ export class DefaultMessageHandler {
   send(uri, opts) {
     return fetch(uri, opts).then(result => {
       if (result.status >= 200 && result.status < 300) return result;
-      
+
       var e = new Error('Request failed');
       e.result = result;
-      
+
       throw e;
     });
   }
@@ -36,7 +36,7 @@ export class SimpleClient extends MessageHandler {
     super();
     this.handler = handler;
     this.baseUrl = 'https://polarmedica.azurewebsites.net/';
-//    this.baseUrl = 'http://localhost:24655/';
+    // this.baseUrl = 'http://localhost:24655/';
 
     // TODO: Add default values to stuff like common headers etc.
   }
@@ -44,15 +44,15 @@ export class SimpleClient extends MessageHandler {
   send(uri, opts = {}) {
     // TODO: Apply default values for headers and base URI etc.
     const prefix = uri.substring(0, 6).toLowerCase();
-    
+
     if(prefix !== 'http:/' && prefix !== 'https:') {
       if(uri.substring(0, 1) === '/') {
         throw new Error('URL cannot start with /');
       }
-      
+
       uri = this.baseUrl + uri;
     }
-    
+
     return this.handler.send(uri, opts);
   }
 

@@ -1,5 +1,6 @@
 <template>
-  <require from="../../behaviors/paginated"></require>
+  <!-- <require from="../../behaviors/paginated"></require> -->
+  <require from="aurelia-pagination"></require>
 
   <div class="row">
     <div class="col-md-12">
@@ -12,9 +13,9 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" keyup.delegate="pressedKey($event)" value.bind="doctorName" placeholder="Kontornavn">
+                <input type="text" class="form-control" keyup.delegate="pressedKey($event)" value.bind="officeName" placeholder="Kontornavn">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" click.delegate="getFilteredPaginated(1, doctorName)">Søk</button>
+                  <button class="btn btn-default" click.delegate="reset()">Søk</button>
                 </span>
               </div>
             </div>
@@ -23,17 +24,67 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Legenavn">
+                <input type="text" class="form-control" keyup.delegate="pressedKey($event)" value.bind="doctorName" placeholder="Legenavn">
                 <span class="input-group-btn">
-                  <button class="btn btn-default">Søk</button>
+                  <button class="btn btn-default" click.delegate="reset()">Søk</button>
                 </span>
               </div>
             </div>
           </div>
 
+          <div class="col-md-2" repeat.for="type of types">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox1" value="type.value" click.delegate="$parent.changeType(type.value)"> ${type.text}
+            </label>
+          </div>
+
           <div class="col-md-12">
-            <button show.bind="filter" class="btn btn-default" click.delegate="removeFilter()">Fjern filter: ${filter}</button>
-            <paginated offices.bind="offices" page.bind="page" page-count.bind="pageCount" filter.bind="filter" base-path.bind="'#/offices/page'"></paginated>
+            <button show.bind="filter" class="btn btn-default" click.delegate="removeFilter()">Fjern filter</button>
+          </div>
+
+          <div class="col-md-12">
+            <paginated fetch.call="getItems({ page: $event.$page, pageSize: $event.$pageSize })" paginated.ref="paginated" page-size="10">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Kontornavn</th>
+                    <th>Hovedkontakt</th>
+                    <th>Tlf. nr.</th>
+                    <th>Ant. leger</th>
+                    <th>Signert</th>
+                    <th>Rediger</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr repeat.for="office of $data">
+                    <td>${office.name}</td>
+                    <td>${office.mainContact.name}</td>
+                    <td>${office.phoneNumber.number}</td>
+                    <td>${office.doctorCount}</td>
+                    <td><i class.bind="$parent.status(office.membershipStatus)" aria-hidden="true"></i></td>
+                    <td><a href.bind="$parent.editOffice(office.id)">Rediger</a></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <pagination-nav class="row" model.bind="$model" range-size="5">
+                <nav>
+                  <ul class="pagination">
+                    <li click.trigger="$go(0)"><a href="#" aria-label="First"><span aria-hidden="true">&laquo;</span></a></li>
+                    <li class="${ $isFirst ? 'disabled' : '' }" click.trigger="$go('prev')" aria-label="Previous">
+                      <a href="#"><span aria-hidden="true">&lsaquo;</span></a>
+                    </li>
+                    <li repeat.for="nav of $navs" class="${ nav.current ? 'active' : '' }">
+                      <a href="#" click.delegate="nav.go()">${nav.text} <span class="sr-only" if.bind="nav.current">(current)</span></a>
+                    </li>
+                    <li class="${ $isLast ? 'disabled' : '' }" click.trigger="$go('next')" aria-label="Next">
+                      <a href="#"><span aria-hidden="true">&rsaquo;</span></a>
+                    </li>
+                    <li click.trigger="$go(-1)"><a href="#" aria-label="Last"><span aria-hidden="true">&raquo;</span></a></li>
+                  </ul>
+                </nav>
+              </pagination-nav>
+            </paginated>
           </div>
         </div>
       </div>

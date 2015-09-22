@@ -9,72 +9,127 @@ export class List {
   constructor(officeService, router) {
     this.officeService = officeService;
     this.offices = [];
-    this.page = 1;
-    this.pageCount = 0;
-    this.pageSize = 10;
-    this.router = router;
+    // this.pageCount = 0;
+    // this.router = router;
+    this.selectedTypes = [];
+    this.types = [
+      {
+        value: 'None',
+        text: 'Ingen info'
+      },
+      {
+        value: 'Signed',
+        text: 'Signert'
+      },
+      {
+        value: 'WillSign',
+        text: 'Skal signere'
+      },
+      {
+        value: 'Positive',
+        text: 'Positiv'
+      },
+      {
+        value: 'NotInterested',
+        text: 'Ikke interessert'
+      },
+      {
+        value: 'VeryNegative',
+        text: 'Direkte negativ'
+      }
+    ];
   }
-  
+
   activate(params) {
     this.page = params.page ? params.page : 1;
-    this.filter = params.filter ? params.filter : false;
-    
-    if(!this.filter) {
-      return this.getPaginated(this.page)
-        .catch(reject => {
-          return false;
-        });
+    this.doctorName = params.doctorName ? params.doctorName : '';
+    this.officeName = params.officeName ? params.officeName : '';
+    this.pageSize = params.pageSize ? params.pageSize : 10;
+  }
+
+  getItems({ page = 0, pageSize = 10 }) {
+    return this.officeService.getPaginated(page + 1, this.selectedTypes.toString(), this.doctorName, this.officeName, pageSize)
+      .then(result => {
+        const data = result.results;
+        const numPages = result.pageCount;
+
+        if (this.doctorName.length > 1 || this.officeName.length > 1) {
+          this.filter = true;
+        }
+
+        console.log(result);
+
+        return { data, numPages };
+      })
+      .catch(reject => {
+        return false;
+      });
+  }
+
+  changeType(type) {
+    if(this.selectedTypes.indexOf(type) !== -1) {
+      for(let i = this.selectedTypes.length - 1; i >= 0; i--) {
+        if (this.selectedTypes[i] === type) {
+          this.selectedTypes.splice(i, 1);
+        }
+      }
+    } else {
+      this.selectedTypes.push(type);
+    }
+
+    this.reset();
+
+    return true;
+  }
+
+  editOffice(id) {
+    return `#/offices/${id}/`;
+  }
+
+  status(status) {
+    if (status === 'Signed') {
+      return 'fa fa-check';
+    }
+    else if (status === 'WillSign') {
+      return 'fa fa-pencil';
+    }
+    else if (status === 'Positive') {
+      return 'fa fa-plus';
+    }
+    else if (status === 'NotInterested') {
+      return 'fa fa-minus';
+    }
+    else if (status === 'VeryNegative') {
+      return 'fa fa-exclamation';
     }
     else {
-      return this.getFilteredPaginated(this.page, this.filter, this.pageSize)
-        .catch(reject => {
-          return false;
-        });
+      return 'fa fa-times';
     }
   }
-  
+
+  reset() {
+    this.paginated.reset();
+  }
+
   removeFilter() {
-    this.filter = false; 
-    
-    this.router.navigate('#/offices/page/1');
+    this.filter = false;
+
+    this.doctorName = '';
+    this.officeName = '';
+
+    this.reset();
   }
-  
-  getPaginated(page) {
-    return this.officeService.getPaginated(page, this.pageSize)
-      .then(result => {
-        this.offices = result.results;
-        this.page = result.page;
-        this.pageCount = result.pageCount;
-      })
-      .catch(reject => {
-        return false;
-      });
-  }
-  
+
   pressedKey(e) {
-    console.log(e.keyIdentifier); 
-    if (e.keyIdentifier === 'Enter' && this.doctorName) {
-      this.getFilteredPaginated(1, this.doctorName);
+    if (e.keyIdentifier === 'Enter') {
+      this.reset();
     }
   }
-  
-  getFilteredPaginated(page, name) {    
-    return this.officeService.getPaginatedFiltered(page, name, this.pageSize)
-      .then(result => {
-        this.filter = name;
-        this.offices = result.results;
-        this.page = result.page;
-        this.pageCount = result.pageCount;
-      })
-      .catch(reject => {
-        return false;
-      });
-  }
-  
+
   determineActivationStrategy(){
     return activationStrategy.replace;
   }
-  
+
   getViewStrategy() {
     return view;
   }

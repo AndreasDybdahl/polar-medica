@@ -8,40 +8,46 @@
 
         <div class="panel-body">
           <form class="form-horizontal">
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="col-md-3 control-label">Navn: </label>
               <div class="col-md-9">
                 <input type="text" class="form-control" placeholder="Navn" value.bind="office.name">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="col-md-3 control-label">Addresse: </label>
               <div class="col-md-9">
                 <input type="text" class="form-control" placeholder="Addresse" value.bind="office.address">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="col-md-3 control-label">Postnummer: </label>
               <div class="col-md-9">
                 <input type="text" class="form-control" placeholder="Navn" value.bind="office.areaCode">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="col-md-3 control-label">Postområde: </label>
               <div class="col-md-9">
                 <input type="text" class="form-control" placeholder="Postområde" value.bind="office.postalArea">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="col-md-3 control-label">Telefonnummer: </label>
               <div class="col-md-9">
                 <input type="text" class="form-control" placeholder="Telefonnummer" value.bind="office.phoneNumber.number">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="col-md-3 control-label">E-mail: </label>
               <div class="col-md-9">
                 <input type="text" class="form-control" placeholder="E-mail" value.bind="office.email">
+              </div>
+            </div>
+            <div class="form-group form-group-sm">
+              <label class="col-md-3 control-label">Organisasjonsnr.: </label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Organisasjonsnr." value.bind="office.organizationNumber">
               </div>
             </div>
           </form>
@@ -52,7 +58,7 @@
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
           <h3 class="panel-title pull-left">Ansatte leger</h3>
-          
+
           <div style="padding: 0; margin: -4px; width: 10%;" class="form-group pull-right">
             <input class="form-control input-sm" type="text" value.bind="office.doctorCount">
           </div>
@@ -70,9 +76,9 @@
             </thead>
             <tbody>
               <tr repeat.for="doctor of office.doctors">
-                <td>${doctor.name}</td>
-                <td>${doctor.email}</td>
-                <td>${doctor.phoneNumber.number}</td>
+                <td><input required type="text" class="form-control input-sm" placeholder="Navn" value.bind="doctor.name"></td>
+                <td><input type="text" class="form-control input-sm" placeholder="E-mail" value.bind="doctor.email"></td>
+                <td><input type="text" class="form-control input-sm" placeholder="Telefonnummer" value.bind="doctor.phoneNumber.number"></td>
                 <td>
                   <button class="btn btn-danger btn-xs pull-right" click.trigger="$parent.deleteFromStaff($index)">
                     <i class="fa fa-trash-o fa-lg"></i> Slett
@@ -81,6 +87,8 @@
               </tr>
             </tbody>
           </table>
+          <button type="button" class="btn btn-default btn-sm btn-block pull-left" style="width: 49%; margin-right: 2%;">Angre sletting</button>
+          <button type="button" class="btn btn-default btn-sm btn-block" style="width: 49%;" click.trigger="addToStaff()">Legg til</button>
         </div>
       </div>
     </div>
@@ -96,13 +104,13 @@
         <div class="panel-body">
           <div class="col-md-4">
             <form class="form-horizontal">
-              <div class="form-group">
+              <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">Hovedkontakt: </label>
                 <div class="col-md-8">
                   <input type="text" class="form-control" placeholder="Navn" value.bind="office.mainContact.name">
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">Legesekretær: </label>
                 <div class="col-md-8">
                   <input type="text" class="form-control" placeholder="Navn" value.bind="office.secretary.name">
@@ -112,13 +120,13 @@
           </div>
           <div class="col-md-4">
             <form class="form-horizontal">
-              <div class="form-group">
+              <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">Telefon: </label>
                 <div class="col-md-8">
                   <input type="text" class="form-control" placeholder="Telefonnummer" value.bind="office.mainContact.phoneNumber.number">
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">Telefon: </label>
                 <div class="col-md-8">
                   <input type="text" class="form-control" placeholder="Telefonnummer" value.bind="office.secretary.phoneNumber.number">
@@ -128,13 +136,13 @@
           </div>
           <div class="col-md-4">
             <form class="form-horizontal">
-              <div class="form-group">
+              <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">E-mail: </label>
                 <div class="col-md-8">
                   <input type="text" class="form-control" placeholder="E-mail" value.bind="office.mainContact.email">
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">E-mail: </label>
                 <div class="col-md-8">
                   <input type="text" class="form-control" placeholder="E-mail" value.bind="office.secretary.email">
@@ -156,11 +164,11 @@
 
         <div class="panel-body">
           <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="control-label">Gj.sn. kjøp pr lege/år: </label>
               <input type="text" class="form-control" placeholder="Gj.sn. kjøp pr lege/år" value.bind="office.presumedPurchaseAmount">
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="control-label">Kundestatus: </label>
               <select class="form-control" value.bind="office.membershipStatus">
                 <option value="None">Ingen info</option>
@@ -171,7 +179,7 @@
                 <option value="VeryNegative">Direkte negativ</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="control-label">Kundetilfredshet: </label>
               <select class="form-control" value.bind="office.customerSatisfaction">
                 <option value="None">Ingen info</option>
@@ -184,7 +192,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="control-label">Bestillingsprofil: </label>
               <select class="form-control" value.bind="office.orderHistory">
                 <option value="None">Ingen info</option>
@@ -192,7 +200,7 @@
                 <option value="FrequentSmall">Hyppig og smått</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="control-label">Oppfølging: </label>
               <select class="form-control" value.bind="office.followUp">
                 <option value="None">Ingen info</option>
@@ -202,13 +210,13 @@
             </div>
           </div>
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group form-group-sm">
               <label class="control-label">Kommentarer: </label>
               <textarea class="form-control" rows="5" placeholder="Kommentarer" value.bind="office.specialRequirements"></textarea>
             </div>
           </div>
-          
-          <button class="btn btn-default pull-right" click.trigger="save()">Lagre endringer</button> 
+
+          <button class="btn btn-default pull-right" click.trigger="save()">Lagre endringer</button>
         </div>
       </div>
     </div>

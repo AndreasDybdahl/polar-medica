@@ -9,7 +9,7 @@ export class OfficeService {
   post(data) {
     return this.http.post('api/office', { body: data });
   }
-  
+
   put(data) {
     return this.http.put('api/office', { body: data });
   }
@@ -18,17 +18,12 @@ export class OfficeService {
     return this.http.get('api/office')
       .then(response => response.json());
   }
-  
-  getPaginated(page, pageSize) {
-    return this.http.get(`api/office/page/${page}`)
+
+  getPaginated(page, types, doctorName, officeName, pageSize) {
+    return this.http.get(`api/office?page=${page}&types=${types}&doctorName=${doctorName}&officeName=${officeName}&pageSize=${pageSize}`)
       .then(response => response.json());
   }
-  
-  getPaginatedFiltered(page, name, pageSize) {
-    return this.http.get(`api/office/page/${page}/${name}`)
-      .then(response => response.json());
-  }
-  
+
   get(id) {
     return this.http.get(`api/office/${id}`)
       .then(response => response.json());

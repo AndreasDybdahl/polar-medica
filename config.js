@@ -16,7 +16,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  buildCSS: false,
+  buildCSS: true,
 
   map: {
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.17.0",

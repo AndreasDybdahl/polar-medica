@@ -1,4 +1,4 @@
-import 'lib/app/bootstrap-sandstone.min.css!';
+// import './bootstrap-sandstone.min.css!';
 import 'font-awesome/css/font-awesome.css!';
 import 'style/site.css!'
 
@@ -17,7 +17,10 @@ bootstrap(aurelia => {
   auth.http = container.get(HttpClient);
 
   auth.attemptRelogin().then(() => {
-    return aurelia.start().then(a => a.setRoot('app/app', document.body));
+    // System.import('lib/app/bootstrap-sandstone.min.css!').then( (css) => {
+    //   console.log(css);
+      return aurelia.start().then(a => a.setRoot('app/app', document.body));
+    // });
   });
 });
 

@@ -13,12 +13,11 @@ System.config({
     "http/*": "lib/http/*",
     "nitter/*": "lib/nitter/*",
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*",
-    "local/*": "lib/*"
+    "npm:*": "jspm_packages/npm/*"
   },
 
   packages: {
-    "local/html": {
+    "lib/html": {
       "main": "html",
       "map": {
         "path": "github:jspm/nodelibs-path@0.1.0"
@@ -53,7 +52,7 @@ System.config({
     "core-js": "npm:core-js@1.1.4",
     "css": "github:systemjs/plugin-css@0.1.13",
     "font-awesome": "npm:font-awesome@4.3.0",
-    "html": "local/html",
+    "html": "lib/html",
     "latest": "npm:babel-core@5.8.25",
     "latest-runtime": "npm:babel-runtime@5.8.24",
     "markdown": "npm:markdown@0.5.0",

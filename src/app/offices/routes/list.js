@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {OfficeService} from '../services/offices';
 import {activationStrategy, Router} from 'aurelia-router';
+import bootstrap from 'bootstrap';
 
 import view from './list.html!';
 

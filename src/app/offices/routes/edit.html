@@ -68,7 +68,8 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th>Navn</th>
+                <th>Fornavn</th>
+                <th>Etternavn</th>
                 <th>E-mail</th>
                 <th>Tlf. nr.</th>
                 <th><b class="pull-right">Slett</b></th>
@@ -76,7 +77,8 @@
             </thead>
             <tbody>
               <tr repeat.for="doctor of office.doctors">
-                <td><input required type="text" class="form-control input-sm" placeholder="Navn" value.bind="doctor.name"></td>
+                <td><input required type="text" class="form-control input-sm" placeholder="Fornavn" value.bind="doctor.firstName"></td>
+                <td><input required type="text" class="form-control input-sm" placeholder="Etternavn" value.bind="doctor.lastName"></td>
                 <td><input type="text" class="form-control input-sm" placeholder="E-mail" value.bind="doctor.email"></td>
                 <td><input type="text" class="form-control input-sm" placeholder="Telefonnummer" value.bind="doctor.phoneNumber.number"></td>
                 <td>
@@ -102,23 +104,29 @@
         </div>
 
         <div class="panel-body">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <form class="form-horizontal">
               <div class="form-group form-group-sm">
-                <label class="col-md-4 control-label">Hovedkontakt: </label>
-                <div class="col-md-8">
-                  <input type="text" class="form-control" placeholder="Navn" value.bind="office.mainContact.name">
+                <label class="col-md-3 control-label">Hovedkontakt: </label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Fornavn" value.bind="office.mainContact.firstName">
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Etternavn" value.bind="office.mainContact.lastName">
                 </div>
               </div>
               <div class="form-group form-group-sm">
-                <label class="col-md-4 control-label">Legesekretær: </label>
-                <div class="col-md-8">
-                  <input type="text" class="form-control" placeholder="Navn" value.bind="office.secretary.name">
+                <label class="col-md-3 control-label">Legesekretær: </label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Fornavn" value.bind="office.secretary.firstName">
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Etternavn" value.bind="office.secretary.lastName">
                 </div>
               </div>
             </form>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <form class="form-horizontal">
               <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">Telefon: </label>
@@ -134,7 +142,7 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <form class="form-horizontal">
               <div class="form-group form-group-sm">
                 <label class="col-md-4 control-label">E-mail: </label>

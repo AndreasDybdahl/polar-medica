@@ -58,7 +58,7 @@
                 <tbody>
                   <tr repeat.for="office of $data">
                     <td>${office.name}</td>
-                    <td>${office.mainContact.name}</td>
+                    <td>${office.mainContact.firstName + ' ' + office.mainContact.lastName}</td>
                     <td>${office.phoneNumber.number}</td>
                     <td>${office.doctorCount}</td>
                     <td><i class.bind="$parent.status(office.membershipStatus)" aria-hidden="true"></i></td>

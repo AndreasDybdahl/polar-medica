@@ -20,7 +20,7 @@ export class Info {
   }
 
   displayOrgNumber (number) {
-    
+
   }
 
   canActivate(params) {
@@ -74,11 +74,11 @@ export class Info {
   }
 
   save() {
-    if(!this.office.mainContact.name || this.office.mainContact.name.length < 1) {
+    if(!this.office.mainContact.firstName || this.office.mainContact.firstName.length < 1) {
       this.office.mainContact = null;
     }
 
-    if(!this.office.secretary.name || this.office.secretary.name.length < 1 ) {
+    if(!this.office.secretary.firstName || this.office.secretary.firstName.length < 1 ) {
       this.office.secretary = null;
     }
 

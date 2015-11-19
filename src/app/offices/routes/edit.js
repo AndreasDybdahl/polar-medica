@@ -19,10 +19,6 @@ export class Info {
     };
   }
 
-  displayOrgNumber (number) {
-
-  }
-
   canActivate(params) {
     if(/^\d+$/.test(params.id)) {
       return this.officeService.get(params.id)
@@ -35,14 +31,22 @@ export class Info {
           if(!this.office.mainContact) {
             this.office.mainContact = {
               position: 'MainContact',
-              officeId: this.office.id
+              officeId: this.office.id,
+              phoneNumber: {
+                type: '',
+                number: ''
+              }
             };
           }
 
           if(!this.office.secretary) {
             this.office.secretary = {
               position: 'Secretary',
-              officeId: this.office.id
+              officeId: this.office.id,
+              phoneNumber: {
+                type: '',
+                number: ''
+              }
             };
           }
 

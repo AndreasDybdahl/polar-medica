@@ -6,10 +6,10 @@ export class Register {
   static inject() { return [OfficeService]; }
   constructor(officeService) {
     this.officeService = officeService;
-    
+
     this.initData();
   }
-  
+
   configureRouter(config, router){
     config.map([
       { route: ['', 'office'],       moduleId: './register-office', title: 'Registrer - Kontorinfo' },
@@ -20,11 +20,12 @@ export class Register {
 
     this.router = router;
   }
-  
+
   initData() {
     this.doctors = [];
     this.mainContact = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phoneNumber: {
         number: '',
@@ -33,7 +34,8 @@ export class Register {
       position: 'mainContact'
     };
     this.secretary = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phoneNumber: {
         number: '',
@@ -55,9 +57,12 @@ export class Register {
     this.customerSatisfaction = null;
     this.orderHistory = null;
     this.followUp = null;
-    this.specialRequirements = ''; 
+    this.specialRequirements = '';
+    this.patientCount = null;
+    this.supplierOne = '';
+    this.supplierTwo = '';
   }
-  
+
   initTestData() {
     this.doctors = [];
     this.mainContact = {
@@ -92,36 +97,39 @@ export class Register {
     this.customerSatisfaction = null;
     this.orderHistory = null;
     this.followUp = null;
-    this.specialRequirements = 'This is a text'; 
+    this.specialRequirements = 'This is a text';
   }
-  
+
   goTo(route) {
     this.router.navigate(route);
   }
-  
+
   save() {
     let data = {
-      name: this.name, 
-      address: this.address, 
-      email: this.email, 
-      phoneNumber: this.phoneNumber, 
-      areaCode: this.areaCode, 
-      postalArea: this.postalArea, 
-      mainContact: this.mainContact, 
-      secretary: this.secretary, 
-      doctors: this.doctors, 
-      presumedPurchaseAmount: this.presumedPurchaseAmount, 
-      membershipStatus: this.membershipStatus, 
-      customerSatisfaction: this.customerSatisfaction, 
-      orderHistory: this.orderHistory, 
-      followUp: this.followUp, 
-      specialRequirements: this.specialRequirements
+      name: this.name,
+      address: this.address,
+      email: this.email,
+      phoneNumber: this.phoneNumber,
+      areaCode: this.areaCode,
+      postalArea: this.postalArea,
+      mainContact: this.mainContact,
+      secretary: this.secretary,
+      doctors: this.doctors,
+      presumedPurchaseAmount: this.presumedPurchaseAmount,
+      membershipStatus: this.membershipStatus,
+      customerSatisfaction: this.customerSatisfaction,
+      orderHistory: this.orderHistory,
+      followUp: this.followUp,
+      specialRequirements: this.specialRequirements,
+      patientCount: this.patientCount,
+      supplierOne: this.supplierOne,
+      supplierTwo: this.supplierTwo
     };
-    
+
     this.officeService.post(data);
-    
+
     console.log(data);
-    
+
     // temporary re-direct fix
     window.location.hash = '#/';
   }

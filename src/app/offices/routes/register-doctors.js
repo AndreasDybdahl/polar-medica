@@ -9,7 +9,8 @@ export class RegisterDoctors {
     this.parent = index;
     this.regDataSvc = regDataSvc;
     this.doctor = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phoneNumber: {
         number: '',
@@ -18,11 +19,12 @@ export class RegisterDoctors {
       position: 'doctor'
     };
   }
-  
+
   addToTable() {
     this.parent.doctors.push(this.doctor);
     this.doctor = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phoneNumber: {
         number: '',
@@ -31,19 +33,19 @@ export class RegisterDoctors {
       position: 'doctor'
     };
   }
-  
+
   deleteFromTable(index) {
     this.parent.doctors.splice(index, 1);
   }
-  
+
   back() {
-    this.parent.goTo('contacts'); 
+    this.parent.goTo('contacts');
   }
-  
+
   next() {
     this.parent.goTo('other');
   }
-  
+
   getViewStrategy() {
     return view;
   }

@@ -10,7 +10,10 @@
             <div class="col-md-6">
               <label class="control-label">Legekontakt</label>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Navn" value.bind="parent.mainContact.name">
+                <input type="text" class="form-control" placeholder="Fornavn" value.bind="parent.mainContact.firstName">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Etternavn" value.bind="parent.mainContact.lastName">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="E-mail" value.bind="parent.mainContact.email">
@@ -22,7 +25,10 @@
             <div class="col-md-6">
               <label class="control-label">Legesekretær</label>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Navn" value.bind="parent.secretary.name">
+                <input type="text" class="form-control" placeholder="Fornavn" value.bind="parent.secretary.firstName">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Etternavn" value.bind="parent.secretary.lastName">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="E-mail" value.bind="parent.secretary.email">

@@ -3,7 +3,7 @@
   <require from="app/auth/behavior/login-status"></require>
   <require from="lib/app/bootstrap-sandstone.min.css!"></require>
 
-  <nav class="navbar yamm navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
@@ -17,18 +17,6 @@
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a show.bind="row.settings.isVisible" href.bind="row.href">${row.title}</a>
           </li>
-          <!-- <li class="dropdown yamm-fw">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kontor <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                <div class="col-md-3">
-                  <div class="yamm-content">
-                    <a show.bind="row.settings.isVisible" href.bind="row.href">${row.title}</a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li> -->
         </ul>
 
         <login-status user.bind="auth.user" logout.delegate="auth.logout()"></login-status>

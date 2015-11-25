@@ -1,13 +1,16 @@
-body.modal-open
+body.modal-open {
     overflow-y: auto !important;
     padding-right: 0 !important;
+}
 
-nav
+nav {
   text-align: center;
+}
 
-.pagination > li > a
+.pagination > li > a {
   width: 55px;
   text-align: center;
+}
 
 .page-host
   margin-top: 90px
@@ -23,7 +26,7 @@ small.date
   opacity: 0
   transition: opacity .2s ease-out
 
-.colorgraph
+.colorgraph {
   height: 5px
   border-top: 0
   background: #c4e17f
@@ -32,3 +35,34 @@ small.date
   background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4)
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4)
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4)
+}
+
+/*!
+ * Yamm!3 - Yet another megamenu for Bootstrap 3
+ * http://geedmo.github.com/yamm3
+ *
+ * @geedmo - Licensed under the MIT license
+ */
+.yamm .nav,
+.yamm .collapse,
+.yamm .dropup,
+.yamm .dropdown {
+  position: static;
+}
+.yamm .container {
+  position: relative;
+}
+.yamm .dropdown-menu {
+  left: auto;
+
+}
+.yamm .yamm-content {
+  padding: 10px 20px;
+
+}
+.yamm .dropdown.yamm-fw .dropdown-menu {
+  margin-top: 1px;
+  border: none;
+  left: 0;
+  right: 0;
+}

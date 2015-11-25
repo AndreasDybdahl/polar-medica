@@ -15,7 +15,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  buildCSS: false,
+
   packages: {
     "lib/html": {
       "main": "html",

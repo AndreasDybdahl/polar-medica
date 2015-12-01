@@ -1,6 +1,6 @@
 // import './bootstrap-sandstone.min.css!';
 import 'font-awesome/css/font-awesome.css!';
-import 'style/site.css!'
+import 'style/site.css!';
 
 import {bootstrap} from 'aurelia-bootstrapper';
 import {AuthService, HttpClient} from './auth/auth';

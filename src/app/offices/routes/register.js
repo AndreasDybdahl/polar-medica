@@ -53,14 +53,14 @@ export class Register {
     this.areaCode = '';
     this.postalArea = '';
     this.presumedPurchaseAmount = '';
-    this.membershipStatus = null;
-    this.customerSatisfaction = null;
-    this.orderHistory = null;
-    this.followUp = null;
+    this.membershipStatus = 0;
+    this.customerSatisfaction = 0;
+    this.orderHistory = 0;
+    this.followUp = 0;
     this.specialRequirements = '';
     this.patientCount = null;
-    this.supplierOne = '';
-    this.supplierTwo = '';
+    this.supplierOne = 0;
+    this.supplierTwo = 0;
   }
 
   initTestData() {

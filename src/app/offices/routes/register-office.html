@@ -34,10 +34,22 @@
                 <input type="text" class="form-control" value.bind="parent.patientCount" placeholder="Antall pasienter">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" value.bind="parent.supplierOne" placeholder="Leverandør #1">
+                <select class="form-control" value.bind="office.supplierOne">
+                  <option value="" disabled selected>Leverandør #1</option>
+                  <option value="None">Ingen</option>
+                  <option value="Alere">Alere</option>
+                  <option value="Mediq">Mediq</option>
+                  <option value="Norengros">NorEngros</option>
+                </select>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" value.bind="parent.supplierTwo" placeholder="Leverandør #2">
+                <select class="form-control" value.bind="office.supplierTwo">
+                  <option value="" disabled selected>Leverandør #2</option>
+                  <option value="None">Ingen</option>
+                  <option value="Alere">Alere</option>
+                  <option value="Mediq">Mediq</option>
+                  <option value="Norengros">NorEngros</option>
+                </select>
               </div>
             </div>
             <div class="col-md-12">

@@ -4,7 +4,7 @@ build:
 	mimosa build
 
 bundle: build
-	jspm bundle $(BUNDLE) lib/app.js
+	jspm bundle --minify=false $(BUNDLE) lib/app.js
 
 debug-bundle:
 	node-debug jspm bundle $(BUNDLE) lib/app.js

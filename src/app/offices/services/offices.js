@@ -20,6 +20,8 @@ export class OfficeService {
   }
 
   getPaginated(page, types, doctorName, officeName, pageSize) {
+    doctorName = encodeURI(doctorName);
+    officeName = encodeURI(officeName);
     return this.http.get(`api/office?page=${page}&types=${types}&doctorName=${doctorName}&officeName=${officeName}&pageSize=${pageSize}`)
       .then(response => response.json());
   }

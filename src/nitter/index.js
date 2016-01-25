@@ -5,7 +5,10 @@ import './to-array';
 import './for-each';
 import './order-by';
 import './group-by';
-import './sum';
+import './reduce';
+import './filter';
+import './skip';
+import './take';
 
 export default nitter;
 export { nitter, addMethods, subtype };

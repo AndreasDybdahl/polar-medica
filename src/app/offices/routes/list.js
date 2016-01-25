@@ -2,7 +2,6 @@ import {inject} from 'aurelia-framework';
 import {OfficeService} from '../services/offices';
 import {activationStrategy, Router} from 'aurelia-router';
 import bootstrap from 'bootstrap';
-import {MembershipStatus} from '../services/enums';
 
 import view from './list.html!';
 
@@ -11,7 +10,35 @@ export class List {
   constructor(officeService, router) {
     this.officeService = officeService;
     this.offices = [];
+    // this.pageCount = 0;
+    // this.router = router;
     this.selectedTypes = [];
+    this.types = [
+      {
+        value: 'None',
+        text: 'Ingen info'
+      },
+      {
+        value: 'Signed',
+        text: 'Signert'
+      },
+      {
+        value: 'WillSign',
+        text: 'Skal signere'
+      },
+      {
+        value: 'Positive',
+        text: 'Positiv'
+      },
+      {
+        value: 'NotInterested',
+        text: 'Ikke interessert'
+      },
+      {
+        value: 'VeryNegative',
+        text: 'Direkte negativ'
+      }
+    ];
   }
 
   activate(params) {
@@ -19,16 +46,15 @@ export class List {
     this.doctorName = params.doctorName ? params.doctorName : '';
     this.officeName = params.officeName ? params.officeName : '';
     this.pageSize = params.pageSize ? params.pageSize : 10;
-    this.membershipStatus = MembershipStatus;
   }
 
   getItems({ page = 0, pageSize = 10 }) {
-    return this.officeService.getPaginated(page + 1, this.selectedTypes.toString(), -1, this.doctorName, this.officeName, pageSize)
+    return this.officeService.getPaginated(page + 1, this.selectedTypes.toString(), this.doctorName, this.officeName, pageSize)
       .then(result => {
         const data = result.results;
         const numPages = result.pageCount;
 
-        if (this.doctorName.length > 0 || this.officeName.length > 0) {
+        if (this.doctorName.length > 1 || this.officeName.length > 1) {
           this.filter = true;
         }
 

@@ -86,7 +86,7 @@ export class Info {
       this.office.secretary = null;
     }
 
-    this.office.organizationNumber = parseInt(this.office.organizationNumber.replace(/\D+/g, ''));
+    // this.office.presumedPurchaseAmount = parseInt(this.office.presumedPurchaseAmount.replace(/\D+/g, ''));
 
     this.officeService.put(this.office);
 

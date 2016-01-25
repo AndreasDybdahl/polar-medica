@@ -32,7 +32,7 @@
             </div>
           </div>
 
-          <div class="col-md-2" repeat.for="type of membershipStatus">
+          <div class="col-md-2" repeat.for="type of types">
             <label class="checkbox-inline">
               <input type="checkbox" id="inlineCheckbox1" value="type.value" click.delegate="$parent.changeType(type.value)"> ${type.text}
             </label>

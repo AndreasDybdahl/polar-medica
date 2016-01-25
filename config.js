@@ -53,7 +53,6 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.13",
     "font-awesome": "npm:font-awesome@4.3.0",
     "html": "lib/html",
-    "json": "github:systemjs/plugin-json@0.1.0",
     "latest": "npm:babel-core@5.8.25",
     "latest-runtime": "npm:babel-runtime@5.8.24",
     "markdown": "npm:markdown@0.5.0",

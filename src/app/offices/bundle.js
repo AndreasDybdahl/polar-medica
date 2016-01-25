@@ -1,6 +1,7 @@
 // Services
 import './services/offices';
 import './services/registration-data';
+import './services/enums';
 
 // Routes
 import './routes/index';
